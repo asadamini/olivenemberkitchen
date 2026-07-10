@@ -1,8 +1,42 @@
 import { Check, Mail, MapPin, Phone } from "lucide-react";
+import { type FormEvent, useState } from "react";
 
 const formEmail = "oandekitchen@gmail.com";
+const formEndpoint = `https://formsubmit.co/${formEmail}`;
+const ajaxEndpoint = `https://formsubmit.co/ajax/${formEmail}`;
 
 export function QuoteForm() {
+  const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitState("submitting");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch(ajaxEndpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      form.reset();
+      setSubmitState("success");
+    } catch {
+      setSubmitState("error");
+    }
+  }
+
   return (
     <section className="quote-section" id="quote">
       <div className="container quote-grid">
@@ -27,10 +61,11 @@ export function QuoteForm() {
             </span>
           </div>
         </div>
-        <form className="quote-form" action={`https://formsubmit.co/${formEmail}`} method="POST">
+        <form className="quote-form" action={formEndpoint} method="POST" onSubmit={handleSubmit}>
           <input type="hidden" name="_subject" value="New Olive & Ember catering request" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
           <div className="form-row">
             <label>
               Name
@@ -86,8 +121,14 @@ export function QuoteForm() {
             Notes / dietary requests
             <textarea name="notes" rows={4} placeholder="Allergies, vegetarian count, preferred proteins, timing, budget..." />
           </label>
-          <button className="button button-primary button-full" type="submit">
-            Send Request <Check size={17} />
+          {submitState === "success" && (
+            <p className="form-status form-status-success">Thanks. Your catering request was sent.</p>
+          )}
+          {submitState === "error" && (
+            <p className="form-status form-status-error">We could not send this request. Please email oandekitchen@gmail.com directly.</p>
+          )}
+          <button className="button button-primary button-full" type="submit" disabled={submitState === "submitting"}>
+            {submitState === "submitting" ? "Sending..." : "Send Request"} <Check size={17} />
           </button>
         </form>
       </div>

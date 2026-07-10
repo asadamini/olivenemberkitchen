@@ -204,7 +204,7 @@ textarea {
   grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
   align-items: center;
   gap: 56px;
-  min-height: 720px;
+  min-height: 640px;
   padding-top: 104px;
   padding-bottom: 38px;
 }
@@ -245,8 +245,8 @@ h3 {
 }
 
 .hero h1 {
-  max-width: 740px;
-  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  max-width: 560px;
+  font-size: clamp(2.3rem, 3.4vw, 3.8rem);
 }
 
 .hero-copy > p {
@@ -932,7 +932,7 @@ h3 {
 }
 
 .catering-callout-copy {
-  padding: 84px 72px 84px 0;
+  padding: 68px 64px 68px 0;
 }
 
 .catering-callout-copy h2 {
@@ -969,12 +969,16 @@ h3 {
 }
 
 .catering-callout-media {
-  min-height: 540px;
-  margin-right: calc((100vw - min(var(--container), calc(100vw - 40px))) / -2);
+  position: relative;
+  min-height: 430px;
+  overflow: hidden;
+  margin-right: 0;
   background: var(--olive);
 }
 
 .catering-callout-media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1117,6 +1121,12 @@ h3 {
   text-transform: none;
 }
 
+.quote-form input[name="_honey"] {
+  position: absolute;
+  left: -9999px;
+  display: none;
+}
+
 .quote-form input:focus,
 .quote-form select:focus,
 .quote-form textarea:focus {
@@ -1131,6 +1141,32 @@ h3 {
 
 .quote-form select option {
   color: var(--ink);
+}
+
+.form-status {
+  margin: 0;
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.form-status-success {
+  color: #dce4d0;
+  background: rgba(48, 112, 70, 0.28);
+  border: 1px solid rgba(220, 228, 208, 0.22);
+}
+
+.form-status-error {
+  color: #ffd7c4;
+  background: rgba(199, 106, 53, 0.18);
+  border: 1px solid rgba(199, 106, 53, 0.38);
+}
+
+.quote-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
 }
 
 .site-footer {
@@ -1292,7 +1328,7 @@ h3 {
   }
 
   .hero h1 {
-    font-size: 2.55rem;
+    font-size: 2.32rem;
   }
 
   .hero-grid {
