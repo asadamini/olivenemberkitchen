@@ -20,7 +20,7 @@ export function Footer() {
         </div>
         <div>
           <h3>Ordering</h3>
-          <a href="/order">Order Catering</a>
+          <a href="#quote">Order Catering</a>
           <a href="#quote">Request a Quote</a>
           <a href="#menu">View Menu</a>
         </div>

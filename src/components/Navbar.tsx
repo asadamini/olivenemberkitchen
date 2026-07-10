@@ -26,7 +26,7 @@ export function Navbar() {
               </a>
             ))}
           </nav>
-          <a className="button button-primary desktop-cta" href="/order">
+          <a className="button button-primary desktop-cta" href="#quote">
             Order Catering
           </a>
           <button className="icon-button mobile-menu-button" type="button" onClick={() => setIsOpen((open) => !open)} aria-expanded={isOpen} aria-label="Toggle navigation">
@@ -40,14 +40,14 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
-            <a className="button button-primary" href="/order" onClick={() => setIsOpen(false)}>
+            <a className="button button-primary" href="#quote" onClick={() => setIsOpen(false)}>
               Order Catering
             </a>
           </nav>
         )}
       </header>
       <div className="mobile-bottom-cta" aria-label="Mobile quick actions">
-        <a href="/order">Order Catering</a>
+        <a href="#quote">Order Catering</a>
         <a href="#quote">Request Quote</a>
       </div>
     </>

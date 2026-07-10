@@ -16,7 +16,7 @@ export function Hero() {
             Bowls, wraps, salads, mezze, baklava, and catering trays made fresh for workplace meals.
           </p>
           <div className="hero-actions">
-            <a className="button button-primary" href="/order">
+            <a className="button button-primary" href="#quote">
               Order Catering <ArrowRight size={17} />
             </a>
             <a className="button button-secondary-on-dark" href="#menu">
