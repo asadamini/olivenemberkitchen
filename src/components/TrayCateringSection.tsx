@@ -9,7 +9,7 @@ function TrayPackageCard({ pkg }: { pkg: CateringPackage }) {
         {pkg.featured && <span className="featured-ribbon">Most popular</span>}
         <img src={pkg.image} alt={pkg.alt} />
         <div className="catering-package-price">
-          <span>Starting at</span>
+          <span>Package price</span>
           <strong>{pkg.from}</strong>
         </div>
       </div>

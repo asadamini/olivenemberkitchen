@@ -109,14 +109,14 @@ export const featuredCategories = [
   {
     title: "Salad Boxes",
     description: "Fresh greens with protein, cucumber tomato salad, pickled onions, hummus, pita, and dressing.",
-    price: "$15.50",
+    price: "$17.50",
     image: saladBox,
     href: "#menu",
   },
   {
     title: "Tray Catering",
     description: "Build-your-own Mediterranean spreads with 3 protein choices, rice, salad, hummus, pita, toppings, and sauces.",
-    price: "$19.50/person",
+    price: "$17.50/person",
     image: cateringTrays,
     href: "#tray-catering",
   },
@@ -141,12 +141,12 @@ const wraps: MenuItem[] = [
 ];
 
 const salads: MenuItem[] = [
-  { name: "Chicken Shawarma Salad Box", description: "Chicken shawarma served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$15.50", image: saladBox },
-  { name: "Beef Shawarma Salad Box", description: "Beef shawarma served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$15.50", image: chickenSaladBox },
-  { name: "Gyro Salad Box", description: "Gyro meat served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$15.50", image: chickenSaladBox },
-  { name: "Falafel Salad Box", description: "Crispy falafel served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$15.50", image: chickenSaladBox },
-  { name: "Mediterranean Combo Salad Box", description: "Choose any 2 proteins served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$17.50", badge: "Combo", image: chickenSaladBox },
-  { name: "Chicken & Gyro Salad Box", description: "Chicken shawarma and gyro meat served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$17.50", image: chickenSaladBox },
+  { name: "Chicken Shawarma Salad Box", description: "Chicken shawarma served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$17.50", image: saladBox },
+  { name: "Beef Shawarma Salad Box", description: "Beef shawarma served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$17.50", image: chickenSaladBox },
+  { name: "Gyro Salad Box", description: "Gyro meat served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$17.50", image: chickenSaladBox },
+  { name: "Falafel Salad Box", description: "Crispy falafel served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$17.50", image: chickenSaladBox },
+  { name: "Mediterranean Combo Salad Box", description: "Choose any 2 proteins served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$19.50", badge: "Combo", image: chickenSaladBox },
+  { name: "Chicken & Gyro Salad Box", description: "Chicken shawarma and gyro meat served over crisp greens with cucumber tomato salad, pickled onions, hummus, pita, and dressing.", price: "$19.50", image: chickenSaladBox },
 ];
 
 const fullMeals: MenuItem[] = [
@@ -154,17 +154,17 @@ const fullMeals: MenuItem[] = [
   { name: "Combo Bowl Full Meal Box", description: "Choose any 2-protein combo bowl, plus one appetizer and baklava.", price: "$22.50", badge: "Best value", image: fullMealBox },
   { name: "Wrap Full Meal Box", description: "Choose any single-protein wrap box, plus one appetizer and baklava.", price: "$18.50", image: fullMealBox },
   { name: "Combo Wrap Full Meal Box", description: "Choose any 2-protein combo wrap box, plus one appetizer and baklava.", price: "$20.50", image: fullMealBox },
-  { name: "Salad Full Meal Box", description: "Choose any single-protein salad box, plus one appetizer and baklava.", price: "$18.50", image: fullMealBox },
-  { name: "Combo Salad Full Meal Box", description: "Choose any 2-protein combo salad box, plus one appetizer and baklava.", price: "$20.50", image: fullMealBox },
+  { name: "Salad Full Meal Box", description: "Choose any single-protein salad box, plus one appetizer and baklava.", price: "$20.50", image: fullMealBox },
+  { name: "Combo Salad Full Meal Box", description: "Choose any 2-protein combo salad box, plus one appetizer and baklava.", price: "$22.50", image: fullMealBox },
 ];
 
 const appetizers: MenuItem[] = [
-  { name: "Hummus & Pita Cup", description: "Creamy hummus served with pita. Great as a side or snack.", price: "$4.50", image: hummusPita },
-  { name: "Falafel Bites", description: "Crispy falafel bites served with dipping sauce.", price: "$4.50", image: falafelBites },
-  { name: "Mini Mezze Cup", description: "Hummus, cucumber tomato salad, pita, and sauce in an individual cup.", price: "$5.50", image: mezzePlatter },
-  { name: "Hummus & Pita Tray", description: "Creamy hummus served with pita for a group.", price: "$45.00", image: hummusPita },
-  { name: "Falafel Bites Tray", description: "Crispy falafel bites served with dipping sauce.", price: "$45.00", image: falafelBites },
-  { name: "Simple Mezze Starter Tray", description: "Hummus, pita, falafel bites, cucumber tomato salad, and sauces.", price: "$70.00", image: mezzePlatter },
+  { name: "Hummus & Pita Cup", description: "Individual side for 1 person with creamy hummus and pita.", price: "$4.50", image: hummusPita },
+  { name: "Falafel Bites", description: "Individual side for 1 person with crispy falafel bites and dipping sauce.", price: "$4.50", image: falafelBites },
+  { name: "Mini Mezze Cup", description: "Individual mezze side for 1 person with hummus, cucumber tomato salad, pita, and sauce.", price: "$5.50", image: mezzePlatter },
+  { name: "Hummus & Pita Tray", description: "Serves 10-12 as a shared appetizer. Creamy hummus with pita.", price: "$45.00", image: hummusPita },
+  { name: "Falafel Bites Tray", description: "Serves 10-12 as a shared appetizer. Crispy falafel bites with dipping sauce.", price: "$45.00", image: falafelBites },
+  { name: "Simple Mezze Starter Tray", description: "Serves 10-12 as a shared starter. Hummus, pita, falafel bites, cucumber tomato salad, and sauces.", price: "$70.00", image: mezzePlatter },
 ];
 
 const desserts: MenuItem[] = [

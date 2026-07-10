@@ -18,7 +18,7 @@ export function FeaturedCategories() {
                 <h3>{category.title}</h3>
                 <p>{category.description}</p>
                 <span>
-                  Starting at {category.price}
+                  {category.price}
                   <ChevronRight size={17} />
                 </span>
               </div>
