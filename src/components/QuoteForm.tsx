@@ -8,9 +8,9 @@ export function QuoteForm() {
       <div className="container quote-grid">
         <div className="quote-copy">
           <span className="eyebrow">Request a quote</span>
-          <h2>Tell us about your office catering order</h2>
+          <h2>Let's plan your team's meal</h2>
           <p>
-            Send date, guest count, meal style, delivery address, and any dietary notes. We will follow up to shape the order.
+            Tell us what you are planning and we will help build the right Mediterranean catering order for your team.
           </p>
           <div className="quote-contact-list">
             <span>
@@ -19,7 +19,7 @@ export function QuoteForm() {
             </span>
             <span>
               <Phone size={17} />
-              (415) 555-0123
+              (925) 567-6712
             </span>
             <span>
               <MapPin size={17} />
@@ -48,7 +48,7 @@ export function QuoteForm() {
             </label>
             <label>
               Phone
-              <input name="phone" type="tel" placeholder="(415) 555-0123" />
+              <input name="phone" type="tel" placeholder="(925) 567-6712" />
             </label>
           </div>
           <div className="form-row">

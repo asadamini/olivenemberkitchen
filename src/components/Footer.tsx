@@ -23,7 +23,6 @@ export function Footer() {
           <a href="/order">Order Catering</a>
           <a href="#quote">Request a Quote</a>
           <a href="#menu">View Menu</a>
-          <a href="/citybites">CityBites</a>
         </div>
         <div>
           <h3>Contact</h3>
@@ -33,7 +32,7 @@ export function Footer() {
           </span>
           <span>
             <Phone size={15} />
-            (415) 555-0123
+            (925) 567-6712
           </span>
           <span>
             <MapPin size={15} />
@@ -42,8 +41,8 @@ export function Footer() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>© {new Date().getFullYear()} Olive &amp; Ember Mediterranean Kitchen</span>
-        <span>A CityBites kitchen brand</span>
+        <span>Copyright {new Date().getFullYear()} Olive &amp; Ember Mediterranean Kitchen. All rights reserved.</span>
+        <span>Office Catering / Fresh Mediterranean</span>
       </div>
     </footer>
   );

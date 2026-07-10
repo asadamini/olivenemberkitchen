@@ -1,4 +1,5 @@
 import { About } from "./components/About";
+import { CateringCallout } from "./components/CateringCallout";
 import { FeaturedCategories } from "./components/FeaturedCategories";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
@@ -18,6 +19,7 @@ export default function App() {
         <MenuSection />
         <TrayCateringSection />
         <HowItWorks />
+        <CateringCallout />
         <About />
         <QuoteForm />
       </main>

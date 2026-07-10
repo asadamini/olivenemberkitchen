@@ -57,6 +57,24 @@ export type MenuCategory = {
   items: MenuItem[];
 };
 
+export type CateringPackage = {
+  name: string;
+  description: string;
+  tiers: Array<{ label: string; price: string }>;
+  from: string;
+  image: string;
+  alt: string;
+  featured?: boolean;
+};
+
+export type TrayLine = {
+  name: string;
+  description?: string;
+  serves10?: string;
+  serves20?: string;
+  price?: string;
+};
+
 export const navLinks = [
   { label: "Menu", href: "#menu" },
   { label: "Boxed Meals", href: "#boxed-meals" },
@@ -140,12 +158,6 @@ const fullMeals: MenuItem[] = [
   { name: "Combo Salad Full Meal Box", description: "Choose any 2-protein combo salad box, plus one appetizer and baklava.", price: "$20.50", image: fullMealBox },
 ];
 
-const trayCatering: MenuItem[] = [
-  { name: "Office Mediterranean Spread", description: "Choose 3 proteins with Mediterranean rice, cucumber tomato salad, hummus, pita, pickled onions, toppings, and sauces.", price: "$19.50/person", badge: "Most popular", image: cateringTrays },
-  { name: "Build-Your-Own Wrap Tray", description: "Assorted chicken, beef, gyro, and falafel wraps cut in halves with sauces and simple sides.", price: "$16.50/person", image: wrapPlatter },
-  { name: "Executive Mezze & Protein Buffet", description: "Expanded buffet with proteins, mezze starter, salads, rice, pita, sauces, and baklava.", price: "$23.50/person", image: cateringSpread },
-];
-
 const appetizers: MenuItem[] = [
   { name: "Hummus & Pita Cup", description: "Creamy hummus served with pita. Great as a side or snack.", price: "$4.50", image: hummusPita },
   { name: "Falafel Bites", description: "Crispy falafel bites served with dipping sauce.", price: "$4.50", image: falafelBites },
@@ -175,38 +187,96 @@ export const menuCategories: MenuCategory[] = [
   { id: "wraps", label: "Wraps", eyebrow: "Boxed meals", title: "Wrap boxes", description: "Handheld Mediterranean wraps with a side of sauce, ideal for quick meetings and trainings.", items: wraps },
   { id: "salads", label: "Salads", eyebrow: "Boxed meals", title: "Fresh salad boxes", description: "Bright greens, protein, hummus, pita, fresh salad, and dressing for lighter office lunches.", items: salads },
   { id: "full-meal-boxes", label: "Full Meal Boxes", eyebrow: "Boxed meals", title: "Full meal boxes", description: "Entree, appetizer, and baklava packed for complete individual meals.", items: fullMeals },
-  { id: "tray-catering", label: "Tray Catering", eyebrow: "Buffet style", title: "Tray catering packages", description: "Office-ready spreads for larger meetings, all-hands lunches, and team events.", items: trayCatering },
   { id: "appetizers", label: "Appetizers", eyebrow: "Add-ons", title: "Mezze and sides", description: "Simple add-ons for boxed meals or tray catering.", items: appetizers },
   { id: "dessert", label: "Dessert", eyebrow: "Add-ons", title: "Baklava", description: "Classic sweet finishers for individuals or groups.", items: desserts },
   { id: "drinks", label: "Drinks", eyebrow: "Add-ons", title: "Beverages", description: "Easy office drink options for boxed meals and buffets.", items: drinks },
 ];
 
-export const trayPackages = [
+export const cateringPackages: CateringPackage[] = [
   {
-    title: "Boxed Meal Catering",
-    description: "Individually packaged bowls, wraps, salads, and full meal boxes with names or dietary notes.",
-    price: "Starting at $15.50",
-    image: fullMealBox,
-    bullets: ["Best for trainings and lunch meetings", "Easy distribution", "Vegetarian-friendly options"],
-  },
-  {
-    title: "Buffet Tray Catering",
-    description: "Build-your-own Mediterranean buffet with 3 protein choices, rice, salad, hummus, pita, toppings, and sauces.",
-    price: "Starting at $19.50/person",
+    name: "Mediterranean Office Buffet",
+    description: "A complete Mediterranean catering spread with your choice of three proteins, rice, salad, hummus, pita, fresh toppings, and sauces. Perfect for office lunches, meetings, and team events.",
+    tiers: [
+      { label: "Serves 10", price: "$175" },
+      { label: "Serves 20", price: "$350" },
+      { label: "Serves 30", price: "$525" },
+      { label: "Serves 50", price: "$875" },
+    ],
+    from: "$175",
     image: buffetSpread,
-    bullets: ["Choose 3 proteins", "Warm tray setup", "Great for groups of 15+"],
+    alt: "Mediterranean catering buffet with trays, rice, proteins, hummus, and pita",
   },
   {
-    title: "Mezze & Wrap Platters",
-    description: "Shareable wrap trays, hummus, falafel bites, cucumber tomato salad, pita, and baklava.",
-    price: "Custom quote",
+    name: "Build-Your-Own Mediterranean Bowl Bar",
+    description: "A fresh build-your-own Mediterranean bowl bar with rice, greens, three protein choices, hummus, pita, toppings, and sauces. Great for offices where everyone wants to customize their meal.",
+    tiers: [
+      { label: "Serves 10", price: "$175" },
+      { label: "Serves 20", price: "$350" },
+      { label: "Serves 30", price: "$525" },
+      { label: "Serves 50", price: "$875" },
+    ],
+    from: "$175",
+    image: cateringTrays,
+    alt: "Mediterranean catering trays with rice, chicken shawarma, beef, and falafel",
+  },
+  {
+    name: "Mediterranean Wrap Platter Package",
+    description: "An assorted Mediterranean wrap platter with chicken, beef, gyro, or falafel wraps, served with sauces and a fresh side salad. Easy to serve and perfect for working lunches.",
+    tiers: [
+      { label: "Serves 10", price: "$175" },
+      { label: "Serves 20", price: "$350" },
+      { label: "Serves 30", price: "$525" },
+      { label: "Serves 50", price: "$875" },
+    ],
+    from: "$175",
     image: wrapPlatter,
-    bullets: ["Good for open houses", "Simple self-serve format", "Pairs with drinks and desserts"],
+    alt: "Mediterranean wrap platter with assorted wraps, dips, and salad for office catering",
+  },
+  {
+    name: "Full Meal Catering Package",
+    description: "A full Mediterranean catering meal with three protein choices, rice, salad, hummus, pita, toppings, sauces, appetizer, and dessert. Built for office lunches, client meetings, and team events.",
+    tiers: [
+      { label: "Serves 10", price: "$195" },
+      { label: "Serves 20", price: "$390" },
+      { label: "Serves 30", price: "$585" },
+      { label: "Serves 50", price: "$975" },
+    ],
+    from: "$195",
+    image: cateringSpread,
+    alt: "Full Mediterranean catering package with trays of rice, proteins, falafel, hummus, and salad",
+    featured: true,
   },
 ];
 
+export const proteinTrays: TrayLine[] = [
+  { name: "Chicken Shawarma Tray", description: "Marinated chicken shawarma prepared for buffet-style catering.", serves10: "$85", serves20: "$170" },
+  { name: "Beef Shawarma Tray", description: "Seasoned beef shawarma prepared for buffet-style catering.", serves10: "$95", serves20: "$190" },
+  { name: "Gyro Meat Tray", description: "Savory gyro meat prepared for buffet-style catering.", serves10: "$85", serves20: "$170" },
+  { name: "Falafel Tray", description: "Crispy falafel served with dipping sauce.", serves10: "$70", serves20: "$140" },
+  { name: "Three-Protein Catering Tray", description: "Choose any 3 proteins for a catering spread.", serves10: "$245", serves20: "$490" },
+];
+
+export const sideTrays: TrayLine[] = [
+  { name: "Mediterranean Rice Tray", price: "$35" },
+  { name: "House Salad Tray", price: "$45" },
+  { name: "Cucumber Tomato Salad Tray", price: "$35" },
+  { name: "Hummus Tray", price: "$35" },
+  { name: "Pita Tray", price: "$18" },
+  { name: "Pickled Onion Side", price: "$12" },
+  { name: "Sauce Set", price: "$15" },
+];
+
+export const cateringBullets = [
+  "Individually packaged meals",
+  "Buffet-style trays",
+  "Choose 3 proteins for catering packages",
+  "Vegetarian-friendly falafel option",
+  "Full meal boxes with appetizer and baklava",
+  "Easy setup for meetings and office lunches",
+];
+
 export const howItWorks = [
-  { title: "Tell us your event", description: "Share date, time, guest count, office address, and whether you want boxes or trays." },
-  { title: "We help shape the order", description: "Pick proteins, meal style, appetizers, desserts, and any dietary handling." },
-  { title: "We prep for office service", description: "Meals arrive organized for meetings, trainings, lunch rooms, and team events." },
+  { number: "01", title: "Choose boxed meals or tray catering", description: "Pick individual bowls, wraps, salads, full meal boxes, or a catering package sized for your team." },
+  { number: "02", title: "Select proteins and sides", description: "Choose from chicken shawarma, beef shawarma, gyro meat, falafel, hummus, pita, salads, sauces, and dessert." },
+  { number: "03", title: "We prepare and deliver", description: "Built for office lunches, meetings, trainings, onboarding days, and team events. Fresh, on time, every time." },
 ];

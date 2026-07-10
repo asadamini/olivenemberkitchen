@@ -21,18 +21,18 @@ function MenuCard({ item }: { item: MenuItem }) {
 export function MenuSection() {
   const [activeId, setActiveId] = useState(menuCategories[0].id);
   const active = menuCategories.find((category) => category.id === activeId) ?? menuCategories[0];
+  const showProteinNote = ["bowls", "wraps", "salads"].includes(activeId);
 
   return (
-    <section className="section section-white" id="menu">
+    <section className="section section-stone" id="menu">
       <div className="container">
         <div className="menu-header">
           <div>
-            <span className="eyebrow">Customer-facing menu</span>
-            <h2>Office-friendly Mediterranean catering</h2>
-            <p>Clear boxed meal and tray options with launch-ready pricing and no hidden future-only items.</p>
+            <span className="eyebrow">Full menu</span>
+            <h2>Fresh. Made to order.</h2>
           </div>
           <a className="button button-primary" href="#quote">
-            Request a Quote <ArrowRight size={17} />
+            Order Now <ArrowRight size={17} />
           </a>
         </div>
         <div className="tabs" role="tablist" aria-label="Menu categories">
@@ -49,17 +49,22 @@ export function MenuSection() {
             </button>
           ))}
         </div>
-        <div className="menu-panel">
-          <div className="menu-panel-heading">
-            <span className="eyebrow">{active.eyebrow}</span>
-            <h3>{active.title}</h3>
-            <p>{active.description}</p>
+        {showProteinNote && (
+          <div className="menu-note">
+            <strong>Proteins:</strong> Chicken shawarma, beef shawarma, gyro meat, falafel
+            <span aria-hidden="true"> | </span>
+            <strong>Combo:</strong> Choose any 2 proteins for +$2.00
           </div>
-          <div className="menu-grid">
-            {active.items.map((item) => (
-              <MenuCard key={item.name} item={item} />
-            ))}
+        )}
+        {activeId === "full-meal-boxes" && (
+          <div className="menu-note menu-note-warm">
+            <strong>Full Meal includes:</strong> Your choice of entree, one appetizer, and dessert.
           </div>
+        )}
+        <div className="menu-grid">
+          {active.items.map((item) => (
+            <MenuCard key={item.name} item={item} />
+          ))}
         </div>
       </div>
     </section>

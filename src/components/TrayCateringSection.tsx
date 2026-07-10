@@ -1,64 +1,98 @@
-import { Check, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { images, trayPackages } from "../data/menu";
+import { cateringPackages, proteinTrays, sideTrays, type CateringPackage } from "../data/menu";
+
+function TrayPackageCard({ pkg }: { pkg: CateringPackage }) {
+  return (
+    <article className={`catering-package-card${pkg.featured ? " is-featured" : ""}`}>
+      <div className="catering-package-media">
+        {pkg.featured && <span className="featured-ribbon">Most popular</span>}
+        <img src={pkg.image} alt={pkg.alt} />
+        <div className="catering-package-price">
+          <span>Starting at</span>
+          <strong>{pkg.from}</strong>
+        </div>
+      </div>
+      <div className="catering-package-body">
+        <h3>{pkg.name}</h3>
+        <p>{pkg.description}</p>
+        <div className="serving-tier-grid">
+          {pkg.tiers.map((tier) => (
+            <div className="serving-tier" key={tier.label}>
+              <span>{tier.label}</span>
+              <strong>{tier.price}</strong>
+            </div>
+          ))}
+        </div>
+        <a className="button button-outline-dark" href="#quote">
+          Send a Request
+        </a>
+      </div>
+    </article>
+  );
+}
 
 export function TrayCateringSection() {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <section className="section section-sage" id="tray-catering">
+    <section className="section tray-section" id="tray-catering">
       <div className="container">
-        <div className="section-heading compact">
+        <div className="section-heading compact tray-heading">
           <span className="eyebrow">Tray catering</span>
-          <h2>Built for meetings, trainings, and office events</h2>
-          <p>Choose boxed meals for individual service or tray catering for a shared Mediterranean spread.</p>
+          <h2>
+            Catering packages for
+            <br />
+            teams of 10 to 100+
+          </h2>
+          <p>
+            All main packages include your choice of <strong>3 proteins</strong>: chicken shawarma, beef shawarma, gyro meat, or falafel.
+          </p>
         </div>
-        <div className="package-grid">
-          {trayPackages.map((pkg) => (
-            <article className="package-card" key={pkg.title}>
-              <img src={pkg.image} alt={pkg.title} />
-              <div>
-                <span className="package-price">{pkg.price}</span>
-                <h3>{pkg.title}</h3>
-                <p>{pkg.description}</p>
-                <ul>
-                  {pkg.bullets.map((bullet) => (
-                    <li key={bullet}>
-                      <Check size={15} />
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-                <a className="text-link" href="#quote">
-                  Send a catering request <ChevronRight size={16} />
-                </a>
-              </div>
-            </article>
+        <div className="catering-package-grid">
+          {cateringPackages.map((pkg) => (
+            <TrayPackageCard key={pkg.name} pkg={pkg} />
           ))}
         </div>
         <div className="tray-details">
           <button type="button" onClick={() => setShowDetails((value) => !value)}>
-            Tray details and protein choices
+            Protein &amp; Side Trays
             <ChevronRight className={showDetails ? "rotate" : ""} size={18} />
           </button>
           {showDetails && (
             <div className="tray-detail-grid">
               <div>
-                <h3>Protein choices</h3>
-                <p>Chicken shawarma, beef shawarma, gyro meat, falafel, or combo proteins.</p>
+                <h3>Protein Trays</h3>
+                <div className="tray-line-list">
+                  {proteinTrays.map((tray) => (
+                    <div className="tray-line" key={tray.name}>
+                      <div>
+                        <strong>{tray.name}</strong>
+                        {tray.description && <p>{tray.description}</p>}
+                      </div>
+                      <span>
+                        {tray.serves10} / serves 10
+                        <br />
+                        {tray.serves20} / serves 20
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
               <div>
-                <h3>Included setup</h3>
-                <p>Mediterranean rice, cucumber tomato salad, hummus, pita, pickled onions, toppings, and sauces.</p>
-              </div>
-              <div>
-                <h3>Good for</h3>
-                <p>Office lunches, onboarding days, client meetings, trainings, and team events.</p>
+                <h3>Side Trays</h3>
+                <div className="side-line-list">
+                  {sideTrays.map((tray) => (
+                    <div className="side-line" key={tray.name}>
+                      <span>{tray.name}</span>
+                      <strong>{tray.price}</strong>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           )}
         </div>
-        <img className="wide-food-image" src={images.cateringSpread} alt="Large Mediterranean catering spread with trays and sides" />
       </div>
     </section>
   );
