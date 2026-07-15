@@ -1,8 +1,6 @@
 # Olive & Ember Mediterranean Kitchen
 
-Standalone static website for **Olive & Ember Mediterranean Kitchen**, a CityBites kitchen brand focused on Mediterranean boxed meals and tray catering.
-
-This project is separate from the CityBites platform application.
+Standalone static website for **Olive & Ember Mediterranean Kitchen**, a Mediterranean catering brand focused on boxed meals and tray catering.
 
 ## Stack
 

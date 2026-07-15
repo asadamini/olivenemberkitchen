@@ -9,7 +9,7 @@ export function Hero() {
           <div className="pill-row">
             <span className="pill pill-outline">Individual boxed meals</span>
             <span className="pill pill-outline">Tray catering</span>
-            <span className="pill pill-outline">A CityBites kitchen brand</span>
+            <span className="pill pill-outline">Mediterranean office catering</span>
           </div>
           <h1>Fresh Mediterranean catering for office lunches, meetings, and team events.</h1>
           <p>
